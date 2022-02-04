@@ -30,6 +30,7 @@ def monthly_challenge(req, month):
 def monthly_challenge_by_number(req, month_id):
     try:
         month = list(challenges.keys())[month_id - 1]
-        return HttpResponseRedirect("/challenges/" + month)
+        redirect_url = reverse("str_monthly_challenge", args=[month])
+        return HttpResponseRedirect(redirect_url)
     except:
         return HttpResponseNotFound("month id: " + str(month_id) + " Not Found")
