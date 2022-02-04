@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from challenges import views
 
 # URLConf
 urlpatterns = [
-    path('january', views.index),
-    path('february', views.index2),
+    path('<int:month>', views.monthly_challenge_by_number),
+    path('<str:month>', views.monthly_challenge),
 ]

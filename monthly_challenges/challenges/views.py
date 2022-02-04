@@ -3,8 +3,23 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def index(req):
-  return HttpResponse("Jan")
+challenges = {
+  "january": "jan",
+  "february": "february",
+  "march": "march",
+  "april": "april",
+  "may": "may",
+  "june": "june",
+  "july": "july",
+  "august": "august",
+  "september": "september",
+  "october": "october",
+  "november": "november",
+  "december": "december",
+}
 
-def index2(req):
-  return HttpResponse("Feb")
+def monthly_challenge(req, month):
+  return HttpResponse(challenges[month])
+
+def monthly_challenge_by_number(req, month):
+  return HttpResponse("number")
