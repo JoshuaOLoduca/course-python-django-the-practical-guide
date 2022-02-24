@@ -20,5 +20,5 @@ from blog import views
 urlpatterns = [
     path("", views.index, name="blog_main"),
     path("posts", views.posts, name="blog_posts"),
-    path("posts/<str:post>", views.post, name="blog_posts"),
+    path("posts/<slug:post>", views.post, name="blog_post"),
 ]
