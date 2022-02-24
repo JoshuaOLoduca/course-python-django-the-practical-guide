@@ -1,4 +1,5 @@
 from ast import arg
+from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
@@ -23,15 +24,7 @@ challenges = {
 
 
 def index(req):
-    month_list_items = ""
-
-    for month in challenges:
-        month_url = reverse("str_monthly_challenge", args=[month])
-        month_list_items += f'<li><a href="{month_url}">{month}</a></li>'
-
-    month_list = f"<ul>{month_list_items}</ul>"
-
-    return HttpResponse(month_list)
+    return render(req, "challenges/index.html", {"months": challenges})
 
 
 def monthly_challenge(req, month):
