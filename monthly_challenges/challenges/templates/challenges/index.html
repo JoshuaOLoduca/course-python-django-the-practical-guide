@@ -6,6 +6,9 @@
   {% endblock page_title %}
 
   {% block content %}
+
+    {% include "challenges/includes/header.html" with active_page="Index" %}
+
     <h1>Index Of Monthly Challenge's</h1>
     <h2>{{text}}</h2>
     <ul>
