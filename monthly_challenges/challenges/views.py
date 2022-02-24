@@ -2,6 +2,7 @@ from ast import arg
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -35,7 +36,9 @@ def index(req):
 
 def monthly_challenge(req, month):
     try:
-        return HttpResponse(challenges[month])
+        # month_data = challenges[month]
+        response_data = render_to_string("challenges/challenge.html")
+        return HttpResponse(response_data)
     except:
         return HttpResponseNotFound(month + " Not Found")
 
