@@ -36,9 +36,10 @@ def index(req):
 
 def monthly_challenge(req, month):
     try:
-        # month_data = challenges[month]
-        response_data = render_to_string("challenges/challenge.html")
-        return HttpResponse(response_data)
+        month_data = challenges[month]
+        return render(
+            req, "challenges/challenge.html", {"month": month, "text": month_data}
+        )
     except:
         return HttpResponseNotFound(month + " Not Found")
 
