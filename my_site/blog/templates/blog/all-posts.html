@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'blog/all-posts.css' %}">
 <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/all-posts.css' %}">
 {% endblock css %}
 
 {% block title %}
@@ -14,15 +14,9 @@ index
   <h2>My Posts</h2>
 
   <ul>
-    {% include 'blog/includes/post.html' %}
-    {% include 'blog/includes/post.html' %}
-    {% include 'blog/includes/post.html' %}
-    {% include 'blog/includes/post.html' %}
-    {% include 'blog/includes/post.html' %}
-    {% include 'blog/includes/post.html' %}
-    {% include 'blog/includes/post.html' %}
-    {% include 'blog/includes/post.html' %}
-    {% include 'blog/includes/post.html' %}
+    {% for post in all_posts %}
+    {% include 'blog/includes/post.html' with post=post %}
+    {% endfor %}
   </ul>
 </section>
 {% endblock content %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-This Post Title
+{{post.title}}
 {% endblock title %}
 
 {% block css %}
@@ -11,19 +11,17 @@ This Post Title
 
 {% block content %}
 <section id="summary">
-  <h2>Post Title</h2>
+  <h2>{{post.title}}</h2>
   <article>
-    <img src="{% static 'blog/img/Empire.jpg' %}" alt="Post Title" />
-    <address>By Ted Mosby</address>
+    <img src="{% static 'blog/img/'|add:post.image %}" alt="{{post.title}}" />
+    <address>{{post.author}}</address>
     <div>
-      Last updated on <time>July 10th</time>
+      Last updated on <time>{{post.date}}</time>
     </div>
   </article>
 </section>
 
 <main>
-  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero quisquam praesentium voluptates minima consequatur
-    vitae dolores a! Itaque quam eligendi eius mollitia facere dolorem veniam repellendus sapiente, aperiam, cumque
-    voluptatibus.</p>
+  <p>{{post.content|linebreaks}}</p>
 </main>
 {% endblock content %}

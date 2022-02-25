@@ -1,12 +1,12 @@
  {% load static %}
  <li>
    <article class="post">
-     <a href="{% url 'blog_post' 'empire-building' %}">
-       <img src="{% static 'blog/img/Empire.jpg' %}" alt="Empire State Building Review" />
+     <a href="{% url 'blog_post' post.slug %}">
+       <img src="{% static 'blog/img/'|add:post.image %}" alt="{{ post.title }}" />
        <div class="post__content">
-         <h3>Building reviewing</h3>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate nesciunt placeat dignissimos repellat
-           atque saepe eveniet, expedita velit eius ex itaque error iusto quisquam ipsa sint id maxime ipsam. Natus.
+         <h3>{{ post.title }}</h3>
+         <p>
+           {{ post.excerpt }}
          </p>
        </div>
      </a>

@@ -23,7 +23,11 @@ index
   <h2>My Latest Posts</h2>
 
   <ul>
-    {% include 'blog/includes/post.html' %}
+    {% for post in posts %}
+
+    {% include 'blog/includes/post.html' with post=post %}
+
+    {% endfor %}
   </ul>
 </section>
 
