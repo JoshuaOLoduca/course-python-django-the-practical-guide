@@ -5,7 +5,8 @@ from django.shortcuts import render
 
 
 def index(req):
-    return HttpResponse("main")
+    return render(req, "index.html")
+    # return HttpResponse("main")
 
 
 def posts(req):
