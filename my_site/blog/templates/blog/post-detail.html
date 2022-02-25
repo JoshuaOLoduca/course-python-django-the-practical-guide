@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+This Post Title
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/post-detail.css' %}">
+{% endblock css %}
+
+{% block content %}
+<section id="summary">
+  <h2>Post Title</h2>
+  <article>
+    <img src="{% static 'blog/img/Empire.jpg' %}" alt="Post Title" />
+    <address>By Ted Mosby</address>
+    <div>
+      Last updated on <time>July 10th</time>
+    </div>
+  </article>
+</section>
+
+<main>
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero quisquam praesentium voluptates minima consequatur
+    vitae dolores a! Itaque quam eligendi eius mollitia facere dolorem veniam repellendus sapiente, aperiam, cumque
+    voluptatibus.</p>
+</main>
+{% endblock content %}

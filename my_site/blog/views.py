@@ -15,4 +15,4 @@ def posts(req):
 
 def post(req, post):
     print(post)
-    return HttpResponse("Post for " + post)
+    return render(req, "blog/post-detail.html")
