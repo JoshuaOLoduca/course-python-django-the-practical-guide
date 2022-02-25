@@ -5,12 +5,12 @@ from django.shortcuts import render
 
 
 def index(req):
-    return render(req, "index.html")
+    return render(req, "blog/index.html")
     # return HttpResponse("main")
 
 
 def posts(req):
-    return HttpResponse("posts")
+    return render(req, "blog/all-posts.html")
 
 
 def post(req, post):
