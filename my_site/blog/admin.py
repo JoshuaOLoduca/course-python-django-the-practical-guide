@@ -17,6 +17,7 @@ class PostAdmin(admin.ModelAdmin):
         "author",
         "get_tags",
     )
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Author)
