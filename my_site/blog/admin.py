@@ -3,6 +3,22 @@ from blog.models import *
 
 # Register your models here.
 
+
+class PostAdmin(admin.ModelAdmin):
+    list_filter = (
+        "author",
+        "title",
+        "tags",
+        "date",
+    )
+    list_display = (
+        "title",
+        "date",
+        "author",
+        "get_tags",
+    )
+
+
 admin.site.register(Author)
-admin.site.register(Post)
+admin.site.register(Post, PostAdmin)
 admin.site.register(Tag)

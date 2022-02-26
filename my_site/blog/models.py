@@ -9,9 +9,18 @@ class Author(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
 
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
+    def __str__(self):
+        return self.full_name()
+
 
 class Tag(models.Model):
     caption = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.caption
 
 
 class Post(models.Model):
@@ -25,3 +34,9 @@ class Post(models.Model):
     content = models.TextField()
     tags = models.ManyToManyField(Tag)
     slug = models.SlugField(db_index=True, unique=True)
+
+    def get_tags(self):
+
+        return ", \n".join([p.caption for p in self.tags.all()])
+
+    get_tags.short_description = "Tags"
