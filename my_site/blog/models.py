@@ -36,7 +36,9 @@ class Post(models.Model):
     slug = models.SlugField(db_index=True, unique=True)
 
     def get_tags(self):
-
         return ", \n".join([p.caption for p in self.tags.all()])
+
+    def __str__(self):
+        return f"{self.title} by {self.author.full_name()}"
 
     get_tags.short_description = "Tags"
