@@ -14,7 +14,7 @@
   <h2>{{post.title}}</h2>
   <article>
     <img src="{% static 'blog/img/'|add:post.image_name %}" alt="{{post.title}}" />
-    <address>{{post.author}}</address>
+    <address>By <a href="mailto:{{post.author.email}}">{{post.author}}</a></address>
     <div>
       Last updated on <time>{{post.date}}</time>
     </div>
